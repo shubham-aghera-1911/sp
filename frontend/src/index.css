@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans transition-colors duration-200 dark:bg-slate-950 dark:text-slate-100;
+    background-image: radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.07), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-brand-200 text-brand-900 dark:bg-brand-800 dark:text-brand-50;
+  }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm transition-shadow duration-200;
+  }
+  .card-hover {
+    @apply hover:shadow-md hover:-translate-y-0.5 transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-700 active:scale-[0.98] text-white font-medium rounded-xl px-4 py-2.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+  .btn-secondary {
+    @apply bg-slate-100 hover:bg-slate-200 active:scale-[0.98] dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-xl px-4 py-2.5 transition-all;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder:text-slate-400 transition-shadow;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 to-pink-500 bg-clip-text text-transparent dark:from-brand-400 dark:to-pink-400;
+  }
+}
+
+/* Extra bottom padding on small screens so content isn't hidden behind the
+   fixed mobile bottom nav bar (see MobileNav.jsx) */
+@media (max-width: 639px) {
+  .mobile-nav-spacer {
+    padding-bottom: 4.5rem;
+  }
+}
